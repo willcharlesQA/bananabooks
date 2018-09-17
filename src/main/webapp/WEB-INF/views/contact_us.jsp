@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Shopping </title>
+    <title> Contact Us | Elsevier </title>
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -38,10 +38,8 @@
 
     <div class="callout large">
       <div class="row column text-center">
-        <h1>Item added to cart </h1>
-        
-        <a href="/" class="button large">Back to Items </a>
-      
+        <h1> Contact us!</h1>
+              
       </div>
     </div>
     

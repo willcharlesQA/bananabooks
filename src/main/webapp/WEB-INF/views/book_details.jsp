@@ -55,8 +55,8 @@
                 <li><a href="/login">Register | Login</a></li>
               </ul>
             </li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/aboutUs">About Us</a></li>
+            <li><a href="/contactUs">Contact</a></li>
           </ul>
           
       </div>
@@ -204,8 +204,8 @@
       <ul class="menu">
         <li>Online Shopping</li>
         <li><a href="/">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contactUs">Contact</a></li>
         <li class="float-right">Copyright 2017</li>
       </ul>
     </div>

@@ -12,8 +12,8 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text" style="color:red">Online Shopping</li>
-          <li><a href="/">Home</a></li>
+          <li class="menu-text" style="color:yellow">Banana Books</li>
+          <li><a href="/index">Home</a></li>
           
         </ul>
       </div>
@@ -28,8 +28,8 @@
                 <li><a href="/login">Register | Login</a></li>
               </ul>
             </li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/aboutUs">About Us</a></li>
+            <li><a href="/contactUs">Contact</a></li>
           </ul>
           
       </div>

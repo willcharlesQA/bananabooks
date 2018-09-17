@@ -56,6 +56,22 @@ public class CustomerController {
 		
 	}
 
+	@RequestMapping("/aboutUs")
+	public ModelAndView aboutUs()
+	{
+		ModelAndView modelAndView = new ModelAndView("about_us");
+		
+		return modelAndView;
+	}
+	
+	@RequestMapping("/contactUs")
+	public ModelAndView contactUs()
+	{
+			ModelAndView modelAndView = new ModelAndView("contact_us");
+			
+			return modelAndView;
+	}
+	
 	@RequestMapping("/login")
 	public ModelAndView login()
 	{

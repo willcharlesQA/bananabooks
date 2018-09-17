@@ -33,7 +33,7 @@
               </ul>
             </li>
             <li><a href="/aboutUs">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/contactUs">Contact</a></li>
           </ul>
           
       </div>

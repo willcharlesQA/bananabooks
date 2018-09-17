@@ -45,8 +45,8 @@
                 <li><a href="/viewCart"><img src="images/cart.jpg" width="50" height="50"/></a></li>
                
               </ul>
-            </li>
-            
+            <li><a href="/aboutUs">About Us</a></li>
+            <li><a href="/contactUs">Contact</a></li>
           </ul>
           
       </div>
