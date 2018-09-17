@@ -18,6 +18,7 @@
         <ul class="menu">
           <li class="menu-text" style="color:red">Online Shopping</li>
           <li><a href="/">Home</a></li>
+          <input type="text" placeholder="Search..">
           
         </ul>
       </div>
