@@ -31,7 +31,7 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text" style="color:red">Online Shopping</li>
+          <li><img src="images/LogoV1.png" width="100" height="100"/></li>
           <li><a href="/">Home</a></li>
           
         </ul>
@@ -143,7 +143,7 @@
       
       </div>
       <div class="medium-6 large-5 columns">
-        <%-- <h3>Order Summary </h3>
+        <h3>Order Summary </h3>
         <p> </p>
 
         <div class="row">
@@ -183,7 +183,7 @@
 		  
 		<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
         <input type="submit" class="button large expanded" value="Checkout"/>
-        --%>
+        <li><a href="/processPayment">Process payment</a></li>
       </div>  
    
  </div>
