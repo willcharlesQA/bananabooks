@@ -144,7 +144,7 @@
       <div class="medium-6 large-5 columns">
       
       
-        <!--  <div class="login_in_shipping">
+        <div class="login_in_shipping">
     
 
         <div class="row">
@@ -159,11 +159,11 @@
            <input type="submit" id="login_submit" value="Login"/>
              
           </div>
-          
-           
+  <!--        
+     
        </div>
       
-      </div> -->
+      </div>
       
            <h3>Already have an account </h3>
         <p> Please login using saved details</p>
@@ -172,11 +172,11 @@
         
           <div class="small-3 columnsee">
           
-          <!--     Email *
+          Email *
              <input type="text" id="email" name="email" size="30"/> 
              
              Password *
-             <input type="password" id="password" name="password" size="30"/>  -->
+             <input type="password" id="password" name="password" size="30"/>
              <a href="/loginThroughCheckout?order_total=<%=orderTotal%>" class="button large expanded">Login</a>
           </div>
            
@@ -202,7 +202,7 @@
            </div>
       
         </div>
-
+ -->  
 		<form action="checkoutProcess" id="checkout_form">
 		<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
         <input type="submit" class="button large expanded" value="Checkout"/>

@@ -98,7 +98,7 @@
             <input type="text" name="city" id="city" size="30"/>
           </div>
           
-       <!--    <div class="column">
+       	<div class="column">
             <label> Postcode / Zip code * </label>
             <input type="text" name="postcode" id="postcode" size="30"/>
           </div>
@@ -106,9 +106,9 @@
           <div class="column">
             <label> State/Province * </label>
             <input type="text" name="state" id="state" size="30"/>
-          </div> -->
+          </div>
           
-   <!--        <div class="column">
+   <div class="column">
             <label> Country</label>
             <input type="text" name="country" id="country" size="30"/>
           </div>
@@ -127,7 +127,7 @@
           
           <div class="column">
             <input type="checkbox" name="same" id="same"/> My billing and shipping address are the same
-          </div> -->
+          </div>
           
         </div>
         
@@ -143,7 +143,7 @@
       
       </div>
       <div class="medium-6 large-5 columns">
-        <%-- <h3>Order Summary </h3>
+        <h3>Order Summary </h3>
         <p> </p>
 
         <div class="row">
@@ -183,7 +183,7 @@
 		  
 		<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
         <input type="submit" class="button large expanded" value="Checkout"/>
-        --%>
+      
       </div>  
    
  </div>
