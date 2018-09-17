@@ -43,12 +43,12 @@
         <div class="medium-6">
            <h3> Please login using your stored credentials  </h3>
                 
-               <form action="loginProcess" method="post"> 
+               <form action="loginProcess" method="post" id="login_form">
               
                <label>Email ID * </label>
-                <input type="text" placeholder="Enter email" name="email" id="email"/> 
+                <input type="email" placeholder="Enter email" name="email" id="email" data-parsley-trigger="change" required/>
                 <label>Password * </label>
-				 <input type="password" placeholder="Enter Password" name="password" id="password"/>
+				 <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-trigger="change" required/>
             	<input type="submit" class="button expanded" value="Login">
               
               </form>
@@ -66,7 +66,21 @@
     
    
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://parsleyjs.org/dist/parsley.min.js"></script>
     <script src="js/elsevier.js"></script>
+    <script>
+        $(function () {
+            $('#login_form').parsley().on('field:validated', function() {
+                var ok = $('.parsley-error').length === 0;
+                $('.bs-callout-info').toggleClass('hidden', !ok);
+                $('.bs-callout-warning').toggleClass('hidden', ok);
+            })
+                .on('form:submit', function() {
+                    // form is valid
+                    return true;
+                });
+        });
+    </script>
     <script>
       $(document).foundation();
     </script>

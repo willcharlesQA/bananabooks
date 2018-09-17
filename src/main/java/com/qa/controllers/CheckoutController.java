@@ -1,7 +1,5 @@
 package com.qa.controllers;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
