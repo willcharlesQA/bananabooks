@@ -225,9 +225,6 @@
                         <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
                     </div>
                 </div>
-                <div>
-                    <input type="submit" class="button large expanded" value="Confirm"/>
-                </div>
        
             </form>
             <form action="/confirmation" method="post" id="confirmation">   
