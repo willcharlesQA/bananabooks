@@ -200,7 +200,7 @@
 
                 <div class="row">
 
-                <%
+               <!--  <%
                     int i = 0;
                     for(Book book : books)
                     {
@@ -217,7 +217,7 @@
                     <%
                             i++;
                         }
-                    %>
+                    %> -->
                     <div class="small-3 columns">
                         <label for="middle-label" class="middle">Order Total  </label>
                     </div>
@@ -226,14 +226,18 @@
                     </div>
                 </div>
                 <div>
-                    <input type="submit" class="button large expanded" value="Checkout"/>
+                    <!--  <input type="submit" class="button large expanded" value="Checkout"/> -->
+                  <script
+					    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					    data-key="pk_test_21SqCOUdFzdvifRrHfRFiV74"
+					    data-amount="<%=orderTotal*100%>"
+					    data-name="BananaBooks"
+					    data-description="Please enter details below"
+					    data-image="images/LogoV1.png"
+					    data-locale="auto">
+				  </script>
                 </div>
-       
             </form>
-            <form action="/confirmation" method="post" id="confirmation">   
-					<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
-			        <input type="submit" class="button large expanded" value="Proceed to Confirmation"/>
-        		</form> 
             <%
             }
         %>

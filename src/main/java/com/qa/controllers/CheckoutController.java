@@ -15,6 +15,17 @@ import com.qa.models.Shipping;
 @SessionAttributes(names={"book_counts"})
 @Controller
 public class CheckoutController {
+	
+	@RequestMapping("/confirmation")
+	public ModelAndView confirmation(@ModelAttribute("book_counts") Map<Integer,Integer> bookCounts,@RequestParam("order_total") double orderTotal,@ModelAttribute("logged_in_customer") Customer c)
+	{
+		ModelAndView modelAndView = new ModelAndView("confirmation","order_total",orderTotal);
+		modelAndView.addObject("logged_in_customer", c);
+		modelAndView.addObject("order_total", orderTotal);
+		modelAndView.addObject("book_counts", bookCounts);
+		
+		return modelAndView;
+	}
 
 	@RequestMapping("/checkoutProcess")
 	public ModelAndView checkoutProcess(@ModelAttribute("Shipping") Shipping shipping,@ModelAttribute("book_counts") Map<Integer,Integer> bookCounts,@RequestParam("order_total") double orderTotal, @ModelAttribute("logged_in_customer") Customer c)
