@@ -12,7 +12,7 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li><img src="images/LogoV1.png" width="100" height="100"/></li>
+          <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
           <li><a href="/">Home</a></li>
           
         </ul>

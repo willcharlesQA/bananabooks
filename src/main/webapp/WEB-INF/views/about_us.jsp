@@ -12,7 +12,7 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-        <li><img src="images/LogoV1.png" width="100" height="100"/></li> 
+        <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li> 
           <li><a href="/">Home</a></li>
           
           
@@ -40,10 +40,12 @@
     <div class="callout large">
       <div class="row column text-center">
         <h1>About us!</h1>
-              
+        <li class="menu-text" style="color:red" size=10>Online Shopping</li>
+                      
       </div>
     </div>
     
+    <p><style=color:"green"</style><font size="1">this is a test dgdgdg!</font></font><p>
    
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="js/elsevier.js"></script>
