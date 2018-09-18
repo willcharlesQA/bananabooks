@@ -4,6 +4,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
+<%@ page import="com.qa.models.Customer" %>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -20,8 +21,7 @@
       ArrayList<Book> books;
     
       Map<Integer,Integer> bookCounts;
-    
-      
+
     %>
     
     
@@ -32,7 +32,7 @@
     books  = (ArrayList<Book>) session.getAttribute("filtered_books");
     
     bookCounts = (Map<Integer,Integer>)  session.getAttribute("book_counts");
-    
+
     double cartTotal = 0.0;
     
     double orderTotal = 0.0;

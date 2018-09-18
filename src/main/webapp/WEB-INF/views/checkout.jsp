@@ -4,6 +4,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
+<%@ page import="com.qa.models.Customer" %>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,9 +17,10 @@
 
 <%
     double orderTotal = (Double) request.getAttribute("order_total");
+    Customer c = (Customer) session.getAttribute("logged_in_customer");
+    System.out.println(c);
+
 %>
-
-
 
 <!-- Start Top Bar -->
 <div class="top-bar">
@@ -81,7 +83,7 @@
 
                 <div class="columns">
                     <label> Address * </label>
-                    <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
                 </div>
 
                 <div class="columns">
@@ -91,7 +93,7 @@
 
                 <div class="columns">
                     <label> Post/ZIP code * </label>
-                    <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" data-parsley-type="alphanum" required/>
+                    <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
                 </div>
 
                 <div class="columns">
@@ -149,6 +151,9 @@
        </div>
 
       </div> -->
+        <%
+            if (c == null){
+        %>
 
         <h3>Already have an account? </h3>
         <p> Please login using saved details</p>
@@ -187,6 +192,15 @@
             </div>
 
         </div>
+
+        <%
+            }
+            else{
+        %>
+            <h1> Nice choice <%=c.getFirstName() %>! <h1>
+        <%
+            }
+        %>
 
     </div>
 
