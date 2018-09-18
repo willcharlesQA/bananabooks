@@ -17,8 +17,8 @@
 
 <%
     double orderTotal = (Double) request.getAttribute("order_total");
+    ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("filtered_books");
     Customer c = (Customer) session.getAttribute("logged_in_customer");
-    System.out.println(c);
 
 %>
 
@@ -107,9 +107,6 @@
                 </div>
 
                 <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
-                <input type="submit" class="button large expanded" value="Checkout"/>
-
-            </form>
             <!--
             <div class="column">
               <input type="checkbox" name="same" id="same"/> My billing and shipping address are the same
@@ -198,49 +195,45 @@
             else{
         %>
             <h1> Nice choice <%=c.getFirstName() %>! <h1>
-        <%
+                <h3>Order Summary </h3>
+                <p> </p>
+
+                <div class="row">
+
+                <%
+                    int i = 0;
+                    for(Book book : books)
+                    {
+                    %>
+                    <div class="row small-up-3">
+
+                        <div class="column">
+                            <%=book.getTitle()%>
+                        </div>
+                        <div class="column">
+                            <img class="thumbnail" src="<%=book.getBookImage()%>"/>
+                        </div>
+                    </div>
+                    <%
+                            i++;
+                        }
+                    %>
+                    <div class="small-3 columns">
+                        <label for="middle-label" class="middle">Order Total  </label>
+                    </div>
+                    <div class="small-3 columns">
+                        <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" class="button large expanded" value="Checkout"/>
+                </div>
+            </form>
+            <%
             }
         %>
 
     </div>
-
-
-    <br>
-
-    <%-- <h3>Order Summary </h3>
-    <p> </p>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="middle-label" class="middle">Cart Total</label>
-      </div>
-      <div class="small-3 columns">
-
-        <label for="middle-label" class="middle" id="cart_total_label">$<%=orderTotal %></label>
-       </div>
-
-   </div>
-
-      <div class="row">
-      <div class="small-3 columns">
-        <label for="middle-label" class="middle">VAT </label>
-      </div>
-      <div class="small-3 columns">
-        <label for="middle-label" class="middle">Applicable Tax </label>
-       </div>
-
-    </div>
-
-    <div class="row">
-      <div class="small-3 columns">
-        <label for="middle-label" class="middle">Order Total  </label>
-      </div>
-      <div class="small-3 columns">
-
-        <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
-       </div>
-
-    </div> --%>
 
 
     <%-- <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
