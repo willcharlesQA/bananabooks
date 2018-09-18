@@ -226,7 +226,7 @@
                     </div>
                 </div>
                 <div>
-                    <input type="submit" class="button large expanded" value="Checkout"/>
+                    <input type="submit" class="button large expanded" value="Confirm"/>
                 </div>
             </form>
             <%
