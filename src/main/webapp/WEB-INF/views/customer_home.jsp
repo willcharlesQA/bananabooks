@@ -39,9 +39,9 @@
             <li><a href="#">Order History </a></li>
              <li><a href="/logout">Logout</a></li>
             <li class="has-submenu">
-              <a href="/viewCart"> <img src="images/cart.jpg" width="50" height="50"/></a>
+              <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
               <ul class="submenu menu vertical" data-submenu>
-                <li><a href="/viewCart"><img src="images/cart.jpg" width="50" height="50"/></a></li>
+                <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/></a></li>
                
               </ul>
             <li><a href="/aboutUs">About Us</a></li>
