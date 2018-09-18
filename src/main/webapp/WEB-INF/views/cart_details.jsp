@@ -4,7 +4,6 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
-<%@ page import="com.qa.models.Customer" %>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -21,7 +20,8 @@
       ArrayList<Book> books;
     
       Map<Integer,Integer> bookCounts;
-
+    
+      
     %>
     
     
@@ -32,7 +32,8 @@
     books  = (ArrayList<Book>) session.getAttribute("filtered_books");
     
     bookCounts = (Map<Integer,Integer>)  session.getAttribute("book_counts");
-
+    System.out.println("Counts:" + bookCounts);
+    
     double cartTotal = 0.0;
     
     double orderTotal = 0.0;
@@ -46,8 +47,8 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text" style="color:red">Online Shopping</li>
-          <li><a href="/">Home</a></li>
+          <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
+          
           
         </ul>
       </div>
@@ -56,9 +57,9 @@
              <ul class="dropdown menu" data-dropdown-menu>
             <li id="cart_items"></li>
             <li class="has-submenu">
-              <a href="/viewCart"> <img src="images/cart.jpg" width="50" height="50"/></a>
+              <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
               <ul class="submenu menu vertical" data-submenu>
-                <li><a href="/viewCart"><img src="images/cart.jpg" width="50" height="50"/> View Cart </a></li>
+                <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/> View Cart </a></li>
                 <li><a href="/login">Register | Login</a></li>
               </ul>
             </li>
@@ -75,7 +76,7 @@
       <nav aria-label="You are here:" role="navigation">
         <ul class="breadcrumbs">
          
-          <li><a href="/">Home</a></li>
+          
           <li>
             <span class="show-for-sr">Current: </span> Cart Details
           </li>
@@ -86,8 +87,6 @@
     <div class="row">
       <div class="medium-6 columns">
       <% 
-     
-      
       /* for(Book book : books)
       {
     	  
@@ -106,9 +105,11 @@
     	  
     	  int quantity = bookCounts.get(book.getBookId());
     	  double price = book.getPrice();
+    	  
     	  totalPrice = book.getPrice() * quantity;
     	  cartTotal = cartTotal + book.getPrice()*quantity;
     	  System.out.println("Cart Total "+cartTotal);
+      
     	  
       %>
        
@@ -134,7 +135,7 @@
             	<input type="hidden" name="cart_total" value="<%=cartTotal%>"/>
             	Price <label id="price_label<%=i%>">$<%=totalPrice%></label>
             	<input type="hidden" name="cart_total" value="<%=price%>"/>
-            	Quantity <input type="number"  min="1" name="quantity" value="<%=quantity%>" oninput="calculateTotalPrice(price.value,this.value,price_label<%=i%>)"/>
+            	Quantity <input type="number"  min="1" name="quantity" value="<%=quantity%>" oninput="calculateTotalPrice(price.value,this,price_label<%=i%>)"/>
             </form>
           </div>
           
@@ -202,11 +203,10 @@
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="js/elsevier.js"></script>
     <script src="js/update_cart.js"></script>
+    <script src="js/round.js"></script>
+    
     <script>
       $(document).foundation();
     </script> 
   </body>
 </html>
-
-
-    

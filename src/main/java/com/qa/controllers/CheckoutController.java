@@ -49,7 +49,16 @@ public class CheckoutController {
 		modelAndView.addObject("book_counts", bookCounts);
 	    return modelAndView;
 	}
-	
+
+    @RequestMapping("/confirmation")
+    public ModelAndView loginThroughCheckout(@ModelAttribute("Shipping") Shipping shipping, @ModelAttribute("logged_in_customer") Customer c)
+    {
+
+        ModelAndView modelAndView = new ModelAndView("confirmation", "shipping_address", shipping);
+        modelAndView.addObject("logged_in_customer", c);
+
+        return modelAndView;
+    }
 	
 	
 	

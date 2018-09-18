@@ -26,8 +26,8 @@
 <div class="top-bar">
     <div class="top-bar-left">
         <ul class="menu">
-            <li class="menu-text" style="color:red">Online Shopping</li>
-            <li><a href="/">Home</a></li>
+            <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
+            
         </ul>
     </div>
     <div class="top-bar-right">
@@ -35,9 +35,9 @@
         <ul class="dropdown menu" data-dropdown-menu>
             <li id="cart_items"></li>
             <li class="has-submenu">
-                <a href="/viewCart"> <img src="images/cart.jpg" width="50" height="50"/></a>
+                <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
                 <ul class="submenu menu vertical" data-submenu>
-                    <li><a href="/viewCart"><img src="images/cart.jpg" width="50" height="50"/> View Cart </a></li>
+                    <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/> View Cart </a></li>
                     <li><a href="/login">Register | Login</a></li>
                 </ul>
             </li>
@@ -54,7 +54,7 @@
     <nav aria-label="You are here:" role="navigation">
         <ul class="breadcrumbs">
 
-            <li><a href="/">Home</a></li>
+            
             <li>
                 <span class="show-for-sr">Current: </span> Cart Details
             </li>
@@ -226,7 +226,7 @@
                     </div>
                 </div>
                 <div>
-                    <input type="submit" class="button large expanded" value="Checkout"/>
+                    <input type="submit" class="button large expanded" value="Confirm"/>
                 </div>
        
             </form>
