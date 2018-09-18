@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-@SessionAttributes(names={"book_counts"})
+@SessionAttributes(names={"book_counts", "books"})
 @Controller
 public class CartController {
 

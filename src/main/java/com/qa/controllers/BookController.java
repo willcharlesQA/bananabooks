@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
+import com.qa.models.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,7 +34,6 @@ public class BookController {
 		
 	}
 	
-	
 	@RequestMapping("/addToCart")
 	public ModelAndView addToCart(@ModelAttribute("books") Iterable<Book> books,
 			@RequestParam("bookId") int bookId,
@@ -44,8 +43,7 @@ public class BookController {
 		Book book = findBookById(books, bookId);
 	
 		ModelAndView modelAndView = new ModelAndView("cart_updated","cart_items",cartItems);
-		
-		
+
 		cartItems.add(book);
 		
 		modelAndView.addObject("books", books);
@@ -58,22 +56,21 @@ public class BookController {
 	{
 		
 		ModelAndView modelAndView = null;
-		
+
 		ArrayList<Integer> bookIds = loadBookIds(cartItems);
 		
 		Map<Integer,Integer> bookCounts = bookCounts(bookIds);
 		
 		ArrayList<Book> filteredBooks = filteredBookList(books, bookCounts);
 		
-		
-		
+
 		if(cartItems.size()!=0)
 		{
 		
 			modelAndView = new ModelAndView("cart_details","cart_items",cartItems);
 			modelAndView.addObject("book_counts", bookCounts);
 			modelAndView.addObject("filtered_books", filteredBooks);
-			
+
 		}
 		else
 		{
@@ -123,7 +120,6 @@ public class BookController {
 		return bookIds;
 		
 	}
-	
 
 	// Some business methods
 	

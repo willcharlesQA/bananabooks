@@ -19,7 +19,7 @@ import com.qa.services.BookService;
 import com.qa.services.CustomerService;
 
 @Controller
-@SessionAttributes(names={"books","cart_items","logged_in_customer","Address"})
+@SessionAttributes(names={"books", "cart_items", "book_counts", "logged_in_customer","Address"})
 public class CustomerController {
 
 	@Autowired
@@ -97,11 +97,6 @@ public class CustomerController {
 	{
 		
 		ModelAndView modelAndView  = null;
-		
-		System.out.println("Customer Firstname is "+customer.getFirstName());
-		
-		
-		System.out.println("Customer Password is "+customer.getPassword());
 		
 		Customer c = customerService.saveCustomer(customer);
 	  
