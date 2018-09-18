@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Bananabooks - Welcome</title>
     <link rel="stylesheet" href="css/style.css">
     
     
@@ -101,7 +101,6 @@
 
         <label>Select the format
         <select>
-          <option value="">-- Select -- </option>
           <option value="print">Paperback</option>
           <option value="eBook">eBook</option>
           <option value="printAndeBook">PrintBook & eBook</option>

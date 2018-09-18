@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shopping Cart | Week 3</title>
+    <title>Bananabooks - Shopping Cart</title>
     <link rel="stylesheet" href="css/style.css">
     
     
