@@ -69,7 +69,7 @@
         <h2> Shipping Address </h2>
         <div class="row small-up-shiping">
 
-            <form action="checkoutProcess" method="post" id="checkout_form" data-parsley-validate="parsley">
+            <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
 
                 <div class="columns">
                     <label> First name * </label>
@@ -226,8 +226,6 @@
                     </div>
                 </div>
        
-            </form>
-            <form action="/confirmation" method="post" id="confirmation">   
 					<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
 			        <input type="submit" class="button large expanded" value="Proceed to Confirmation"/>
         		</form> 

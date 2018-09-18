@@ -66,45 +66,12 @@
 
     <div class="medium-6 columns">
 
-        <h2> Shipping Address </h2>
+        <h3> Shipping address confirmation </h3>
         <div class="row small-up-shiping">
 
             <form action="checkoutProcess" method="post" id="checkout_form" data-parsley-validate="parsley">
 
-                <div class="columns">
-                    <label> First name * </label>
-                    <input type="text" name="firstName" id="firstName" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
-                </div>
-
-                <div class="columns">
-                    <label> Last name * </label>
-                    <input type="text" name="lastName" id="lastName" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Address * </label>
-                    <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
-                </div>
-
-                <div class="columns">
-                    <label> City * </label>
-                    <input type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Post/ZIP code * </label>
-                    <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Country *</label>
-                    <input type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Phone Number </label>
-                    <input type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
-                </div>
+                
 
                 <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
             <!--
