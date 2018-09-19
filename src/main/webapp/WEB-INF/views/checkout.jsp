@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <%@page import="java.util.Map"%>
 <%@page import="java.util.Set"%>
@@ -5,6 +6,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
 <%@ page import="com.qa.models.Customer" %>
+<%@ page import="com.qa.models.Address" %>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,8 +19,10 @@
 
 <%
     double orderTotal = (Double) request.getAttribute("order_total");
+    Address address = (Address) request.getAttribute("address");
     ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("filtered_books");
     Customer c = (Customer) session.getAttribute("logged_in_customer");
+
 %>
 
 <!-- Start Top Bar -->
@@ -52,8 +56,6 @@
 <div class="row columns">
     <nav aria-label="You are here:" role="navigation">
         <ul class="breadcrumbs">
-
-            
             <li>
                 <span class="show-for-sr">Current: </span> Cart Details
             </li>
@@ -65,67 +67,101 @@
 
     <div class="medium-6 columns">
 
-        <h2> Shipping Address </h2>
+        <h2> Address </h2>
         <div class="row small-up-shiping">
 
+            <% if (address != null){
+            %>
             <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
 
                 <div class="columns">
                     <label> First name * </label>
-                    <input type="text" name="firstName" id="firstName" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
+                    <input value="<%=c.getFirstName()%>" type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
                 </div>
 
                 <div class="columns">
                     <label> Last name * </label>
-                    <input type="text" name="lastName" id="lastName" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    <input value="<%=c.getLastName()%>" type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                 </div>
 
                 <div class="columns">
                     <label> Address line 1* </label>
-                    <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
+                    <input value="<%=address.getAddressLine1()%>" type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
                 </div>
 
                 <div class="columns">
                     <label> Address line 2* </label>
-                    <input type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
+                    <input value="<%=address.getAddressLine2()%>" type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
                 </div>
 
                 <div class="columns">
                     <label> City * </label>
-                    <input type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    <input value="<%=address.getCity()%>" type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                 </div>
 
                 <div class="columns">
                     <label> Post/ZIP code * </label>
-                    <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
+                    <input value="<%=address.getPostcode()%>" type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
                 </div>
 
                 <div class="columns">
                     <label> Country *</label>
-                    <input type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    <input value="<%=address.getCountry()%>" type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                 </div>
 
                 <div class="columns">
                     <label> Phone Number </label>
-                    <input type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
+                    <input value="<%=address.getPhoneNumber()%>" type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
                 </div>
+                <%
+                    } else{
+                %>
+                <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
 
+                    <div class="columns">
+                        <label> First name * </label>
+                        <input type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Last name * </label>
+                        <input type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Address line 1* </label>
+                        <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Address line 2* </label>
+                        <input type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> City * </label>
+                        <input type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Post/ZIP code * </label>
+                        <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Country *</label>
+                        <input type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Phone Number </label>
+                        <input type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
+                    </div>
+                    <%
+                        }
+                    %>
                 <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
-            <!--
-            <div class="column">
-              <input type="checkbox" name="same" id="same"/> My billing and shipping address are the same
-            </div> -->
-
         </div>
-
-        <div class="row small-up-4">
-
-            <div class="column">
-
-            </div>
-
-        </div>
-
         <hr>
 
     </div>
@@ -160,17 +196,17 @@
         <p> Please login using saved details</p>
 
         <div class="row">
-
             <div class="small-3 columns">
+                <form action="loginCheckout" method="post" id="login_form">
 
-                <!--     Email *
-                   <input type="text" id="email" name="email" size="30"/>
+                    <label>Email ID * </label>
+                    <input type="email" placeholder="Enter email" name="email" id="email" data-parsley-trigger="change" required/>
+                    <label>Password * </label>
+                    <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-trigger="change" required/>
+                    <input type="submit" class="button expanded" value="Login">
 
-                   Password *
-                   <input type="password" id="password" name="password" size="30"/>  -->
-                <a href="/loginThroughCheckout?order_total=<%=orderTotal%>" class="button large expanded">Login</a>
+                </form>
             </div>
-
         </div>
 
         <div class="row">
@@ -232,7 +268,7 @@
        
 					<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
 			        <input type="submit" class="button large expanded" value="Proceed to Confirmation"/>
-        		</form> 
+        		</form>
             <%
             }
         %>

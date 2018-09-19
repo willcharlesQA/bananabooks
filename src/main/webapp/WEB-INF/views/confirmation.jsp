@@ -1,11 +1,7 @@
 <!doctype html>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.Set"%>
-<%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
 <%@ page import="com.qa.models.Customer" %>
-<%@ page import="com.qa.models.Shipping" %>
 <%@ page import="com.qa.models.Address" %>
 <html class="no-js" lang="en">
 <head>
@@ -19,10 +15,9 @@
 
 <%
     double orderTotal = (Double) request.getAttribute("order_total");
+    Address address = (Address) request.getAttribute("address");
     ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("filtered_books");
     Customer c = (Customer) session.getAttribute("logged_in_customer");
-    Address shipping = (Address) session.getAttribute("shipping");
-    System.out.println(shipping);
 %>
 
 <!-- Start Top Bar -->
@@ -68,102 +63,28 @@
 <div class="row">
 
     <div class="medium-6 columns">
-
         <h3> Shipping address confirmation </h3>
         <div class="row small-up-shiping">
-
-            <form action="checkoutProcess" method="post" id="checkout_form" data-parsley-validate="parsley">
-
-            <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
-            <!--
-            <div class="column">
-              <input type="checkbox" name="same" id="same"/> My billing and shipping address are the same
-            </div> -->
+            <p><%=c.getFirstName() + " " + c.getLastName()%></p>
+            <p><%=request.getParameter("addressLine1")%></p>
+            <p><%=request.getParameter("addressLine2")%></p>
+            <p><%=request.getParameter("city")%></p>
+            <p><%=request.getParameter("postcode")%></p>
+            <p><%=request.getParameter("country")%></p>
+            <p><%=request.getParameter("phone")%></p>
         </div>
-        <div class="row small-up-4">
-            <div class="column">
-            </div>
-        </div>
-
         <hr>
 
     </div>
     <div class="medium-6 large-5 columns">
 
-
-        <!--  <div class="login_in_shipping">
-
-
-        <div class="row">
-          <div class="small-3 columns">
-            <h4>Already have an account </h4>
-            <p> Login to check out using your saved details </p>
-            <label> Email * </label>
-            <input type="text" name="email" placeholder="Enter your email ID" size="40"/>
-             <label> Password * </label>
-            <input type="password" name="password" placeholder="Enter your password" size="40"/>
-
-           <input type="submit" id="login_submit" value="Login"/>
-
-          </div>
-
-
-       </div>
-
-      </div> -->
-        <%
-            if (c == null){
-        %>
-
-        <h3>Already have an account? </h3>
-        <p> Please login using saved details</p>
-
-        <div class="row">
-
-            <div class="small-3 columns">
-
-                <!--     Email *
-                   <input type="text" id="email" name="email" size="30"/>
-
-                   Password *
-                   <input type="password" id="password" name="password" size="30"/>  -->
-                <a href="/loginThroughCheckout?order_total=<%=orderTotal%>" class="button large expanded">Login</a>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">VAT </label>
-            </div>
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">Applicable Tax </label>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">Order Total  </label>
-            </div>
-            <div class="small-3 columns">
-
-                <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
-            </div>
-
-        </div>
-
-        <%
-            }
-            else{
-        %>
             <h1> Nice choice <%=c.getFirstName() %>! <h1>
                 <h3>Order Summary </h3>
                 <p> </p>
 
                 <div class="row">
 
-               <!--  <%
+                <%
                     int i = 0;
                     for(Book book : books)
                     {
@@ -180,7 +101,7 @@
                     <%
                             i++;
                         }
-                    %> -->
+                    %>
                     <div class="small-3 columns">
                         <label for="middle-label" class="middle">Order Total  </label>
                     </div>
@@ -200,10 +121,6 @@
 					    data-locale="auto">
 				  </script>
                 </div>
-            </form>
-            <%
-            }
-        %>
 
     </div>
 
@@ -213,25 +130,9 @@
 
 </div>
 
-</div>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="http://parsleyjs.org/dist/parsley.min.js"></script>
-
 <script src="js/elsevier.js"></script>
 <script src="js/update_cart.js"></script>
-<script>
-    $(function () {
-        $('#checkout_form').parsley().on('field:validated', function() {
-            var ok = $('.parsley-error').length === 0;
-            $('.bs-callout-info').toggleClass('hidden', !ok);
-            $('.bs-callout-warning').toggleClass('hidden', ok);
-        })
-            .on('form:submit', function() {
-                // form is valid
-                return true;
-            });
-    });
-</script>
 <script>
     $(document).foundation();
 </script>

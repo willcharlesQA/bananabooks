@@ -23,21 +23,4 @@ public class CartController {
 		return modelAndView;
 		
 	}
-	
-	
-	
-	@RequestMapping("/checkout")
-	public ModelAndView checkoutForm(@ModelAttribute("book_counts") Map<Integer,Integer> bookCounts,@RequestParam("order_total") double orderTotal)
-	{
-		
-		ModelAndView modelAndView = new ModelAndView("checkout","order_total",orderTotal);
-		modelAndView.addObject("book_counts", bookCounts);
-		return modelAndView;
-		
-	}
-	
-	
-	
-	
-	
 }
