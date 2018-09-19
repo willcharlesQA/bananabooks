@@ -21,16 +21,8 @@ public class AddressBookController {
 	@RequestMapping("/updateAddress")
 	public ModelAndView updateAddress(@ModelAttribute("logged_in_customer") Customer loggedInCustomer, @ModelAttribute("Address") Address address)
 	{
-		
 		ModelAndView modelAndView  = null;
-
-		System.out.println("Before update ");
-		System.out.println("ID "+loggedInCustomer.getCustomerId());
-		System.out.println("Name "+loggedInCustomer.getFirstName());
-		System.out.println("Email "+loggedInCustomer.getEmail());
-		
 		Address findAddress = addressService.findAddress(loggedInCustomer.getCustomerId());
-        System.out.println("AAA");
 
         if (findAddress != null){
             int recordsUpdated = addressService.updateAddress(address.getAddressLine1(),
@@ -43,16 +35,13 @@ public class AddressBookController {
                     loggedInCustomer.getCustomerId());
 
 		    if(recordsUpdated>0){
-            System.out.println("BBB");
             address  = addressService.findAddress(loggedInCustomer.getCustomerId());
-			System.out.println("After update ");
 			modelAndView = new ModelAndView("address_book","address", address);
 		    }
-		    else{
-            System.out.println("CCC");
-            modelAndView = new ModelAndView("address_book","address",address);
-		    }
 		}
+        else{
+            modelAndView = new ModelAndView("address_book","address",address);
+        }
         return modelAndView;
 	}
 	

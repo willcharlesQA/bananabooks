@@ -23,7 +23,5 @@ public interface CustomerRepository extends CrudRepository<Customer, Integer>{
 			@Param("lastName") String lastName,
 			@Param("email") String email,
 			@Param("customerId") int customerId);
-	
-
 }
 

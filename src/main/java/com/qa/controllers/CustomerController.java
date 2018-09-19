@@ -95,9 +95,7 @@ public class CustomerController {
 	@RequestMapping("/registerProcess")
 	public ModelAndView registerProcess(@ModelAttribute("Customer") Customer customer)
 	{
-		
 		ModelAndView modelAndView  = null;
-		
 		Customer c = customerService.saveCustomer(customer);
 	  
 		if(c!=null)
@@ -116,15 +114,9 @@ public class CustomerController {
 	public ModelAndView loginProcess(@RequestParam("email") String email,
 										@RequestParam("password") String password)
 	{
-		
 		ModelAndView modelAndView  = null;
-		
 		System.out.println("Email is "+email);
-		
-		
 		System.out.println("Password is "+password);
-		
-		
 		Customer c = customerService.loginProcess(email, password);
 	  
 		if(c!=null)

@@ -16,12 +16,10 @@ public class CustomerService {
 	
 	public Customer saveCustomer(Customer customer)
 	{
-		
 		return customerRepository.save(customer);
 	}
 	
 	public Customer loginProcess(String email,String password){
-	
 		return customerRepository.loginProcess(email, password);
 	}
 	
@@ -30,14 +28,12 @@ public class CustomerService {
 			String lastName,
 			String email,
 			int customerId){
-
 		return customerRepository.updateCustomer(firstName, lastName, email, customerId);
 	}
 	
 	
 	public Customer findCustomerById(int customerId)
 	{
-		
 		return customerRepository.findOne(customerId);
 	}
 	
