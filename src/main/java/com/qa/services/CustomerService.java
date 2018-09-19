@@ -30,8 +30,7 @@ public class CustomerService {
 			String lastName,
 			String email,
 			int customerId){
-		
-		
+
 		return customerRepository.updateCustomer(firstName, lastName, email, customerId);
 	}
 	

@@ -19,7 +19,6 @@
     double orderTotal = (Double) request.getAttribute("order_total");
     ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("filtered_books");
     Customer c = (Customer) session.getAttribute("logged_in_customer");
-
 %>
 
 <!-- Start Top Bar -->
@@ -82,8 +81,13 @@
                 </div>
 
                 <div class="columns">
-                    <label> Address * </label>
+                    <label> Address line 1* </label>
                     <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
+                </div>
+
+                <div class="columns">
+                    <label> Address line 2* </label>
+                    <input type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
                 </div>
 
                 <div class="columns">

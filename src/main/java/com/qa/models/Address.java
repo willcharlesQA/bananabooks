@@ -10,7 +10,6 @@ public class Address {
 	@Id
 	private int addressId;
 	
-	
 	private String addressLine1;
 	
 	private String addressLine2;
@@ -24,19 +23,8 @@ public class Address {
 	private String country;
 	
 	private String phoneNumber;
-	
-	private String addressType;
-
-	public String getAddressType() {
-		return addressType;
-	}
-
-	public void setAddressType(String addressType) {
-		this.addressType = addressType;
-	}
 
 	private int customerId;
-	
 
 	public int getCustomerId() {
 		return customerId;

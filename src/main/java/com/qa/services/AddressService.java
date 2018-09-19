@@ -12,33 +12,24 @@ public class AddressService {
 	@Autowired
 	private AddressRepository addressRespository;
 	
-	
-	
-	public int updateBillingAddress(String addressLine1,
+	public int updateAddress(String addressLine1,
 			String addressLine2,
 			String city,
 			String postcode,
 			String state,
 			String country,
 			String phoneNumber,
-			int customerId,
-			String addressType
+			int customerId
 			){
-		
-		return addressRespository.updateBillingAddress(addressLine1, addressLine2, city, postcode, state, country, phoneNumber, customerId, addressType);
-		
-		
+		return addressRespository.updateAddress(addressLine1, addressLine2, city, postcode, state, country, phoneNumber, customerId);
 	}
 	
-	
-	public Address findAddressByType(int customerId,String addressType){
-		
-		return addressRespository.findAddressByType(customerId, addressType);
+	public Address findAddress(int customerId){
+		return addressRespository.findAddress(customerId);
 	}
 	
 	public Address saveAddress(Address address)
 	{
-		
 		return addressRespository.save(address);
 	}
 

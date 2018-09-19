@@ -18,8 +18,8 @@ import com.qa.models.Customer;
 import com.qa.services.BookService;
 import com.qa.services.CustomerService;
 
-@Controller
 @SessionAttributes(names={"books", "cart_items", "book_counts", "logged_in_customer","Address"})
+@Controller
 public class CustomerController {
 
 	@Autowired
@@ -193,8 +193,6 @@ public class CustomerController {
 		
 		return modelAndView;
 	}
-	
-	
 	
 	@RequestMapping("/addressBook")
 	public ModelAndView addressBook(@ModelAttribute("logged_in_customer") Customer loggedInCustomer)

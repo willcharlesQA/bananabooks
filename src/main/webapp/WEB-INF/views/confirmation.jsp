@@ -5,6 +5,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
 <%@ page import="com.qa.models.Customer" %>
+<%@ page import="com.qa.models.Shipping" %>
+<%@ page import="com.qa.models.Address" %>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
@@ -19,7 +21,8 @@
     double orderTotal = (Double) request.getAttribute("order_total");
     ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("filtered_books");
     Customer c = (Customer) session.getAttribute("logged_in_customer");
-
+    Address shipping = (Address) session.getAttribute("shipping");
+    System.out.println(shipping);
 %>
 
 <!-- Start Top Bar -->
@@ -71,22 +74,15 @@
 
             <form action="checkoutProcess" method="post" id="checkout_form" data-parsley-validate="parsley">
 
-                
-
-                <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
+            <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
             <!--
             <div class="column">
               <input type="checkbox" name="same" id="same"/> My billing and shipping address are the same
             </div> -->
-
         </div>
-
         <div class="row small-up-4">
-
             <div class="column">
-
             </div>
-
         </div>
 
         <hr>
