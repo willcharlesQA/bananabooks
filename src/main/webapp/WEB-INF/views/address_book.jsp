@@ -18,8 +18,10 @@
       <div class="top-bar-left">
         <ul class="menu">
           <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
-          
-          
+          <li><form action="/results">
+      			<input type="text" placeholder="Search.." name="search">
+      			<button type="submit">Submit</button>
+    		</form></li>
         </ul>
       </div>
       <div class="top-bar-right">

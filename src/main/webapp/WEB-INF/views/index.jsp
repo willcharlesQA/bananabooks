@@ -21,7 +21,6 @@
       			<input type="text" placeholder="Search.." name="search">
       			<button type="submit">Submit</button>
     		</form></li>
-          
         </ul>
       </div>
       <div class="top-bar-right">
