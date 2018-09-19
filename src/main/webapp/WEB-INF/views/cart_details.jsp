@@ -22,9 +22,7 @@
         Map<Integer,Integer>bookCounts = (Map<Integer,Integer>)  session.getAttribute("book_counts");
         Customer c = (Customer) session.getAttribute("logged_in_customer");
         double cartTotal = 0.0;
-    
         double orderTotal = 0.0;
-    
         double totalPrice =  0.0;
     %>
     
@@ -35,8 +33,6 @@
       <div class="top-bar-left">
         <ul class="menu">
           <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
-          
-          
         </ul>
       </div>
       <div class="top-bar-right">
@@ -199,6 +195,8 @@
               <input type="submit" class="button expanded" value="Login">
 
           </form>
+
+          <p> First time?  </p> <a href="/register" class="button large expanded">Register</a>
 
           <%
               }

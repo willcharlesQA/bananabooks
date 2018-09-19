@@ -1,14 +1,8 @@
 <!doctype html>
-<%@page import="java.util.Map"%>
-<%@page import="java.util.Set"%>
-<%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
 <%@ page import="com.qa.models.Customer" %>
-<%@ page import="com.qa.models.Shipping" %>
 <%@ page import="com.qa.models.Address" %>
-<%@ page import="com.qa.services.AddressService" %>
-<%@ page import="org.springframework.beans.factory.annotation.Autowired" %>
 <html class="no-js" lang="en">
 <head>
     <meta charset="utf-8" />
@@ -69,22 +63,16 @@
 <div class="row">
 
     <div class="medium-6 columns">
-
         <h3> Shipping address confirmation </h3>
         <div class="row small-up-shiping">
             <p><%=c.getFirstName() + " " + c.getLastName()%></p>
-            <p><%=address.getAddressLine1()%></p>
-            <p><%=address.getAddressLine2()%></p>
-            <p><%=address.getCity()%></p>
-            <p><%=address.getPostcode()%></p>
-            <p><%=address.getCountry()%></p>
-            <p><%=address.getPhoneNumber()%></p>
+            <p><%=request.getParameter("addressLine1")%></p>
+            <p><%=request.getParameter("addressLine2")%></p>
+            <p><%=request.getParameter("city")%></p>
+            <p><%=request.getParameter("postcode")%></p>
+            <p><%=request.getParameter("country")%></p>
+            <p><%=request.getParameter("phone")%></p>
         </div>
-        <div class="row small-up-4">
-            <div class="column">
-            </div>
-        </div>
-
         <hr>
 
     </div>

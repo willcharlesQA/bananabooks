@@ -22,6 +22,7 @@
     Address address = (Address) request.getAttribute("address");
     ArrayList<Book> books = (ArrayList<Book>) session.getAttribute("filtered_books");
     Customer c = (Customer) session.getAttribute("logged_in_customer");
+
 %>
 
 <!-- Start Top Bar -->
@@ -69,7 +70,9 @@
         <h2> Address </h2>
         <div class="row small-up-shiping">
 
-            <form action="confirmation" method="post" modelAttribute="address" id="checkout_form" data-parsley-validate="parsley">
+            <% if (address != null){
+            %>
+            <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
 
                 <div class="columns">
                     <label> First name * </label>
@@ -110,7 +113,53 @@
                     <label> Phone Number </label>
                     <input value="<%=address.getPhoneNumber()%>" type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
                 </div>
+                <%
+                    } else{
+                %>
+                <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
 
+                    <div class="columns">
+                        <label> First name * </label>
+                        <input type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Last name * </label>
+                        <input type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Address line 1* </label>
+                        <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Address line 2* </label>
+                        <input type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> City * </label>
+                        <input type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Post/ZIP code * </label>
+                        <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Country *</label>
+                        <input type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+
+                    <div class="columns">
+                        <label> Phone Number </label>
+                        <input type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
+                    </div>
+                    <%
+                        }
+                    %>
                 <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
         </div>
         <hr>

@@ -50,7 +50,7 @@
             <label>Password * </label>
             <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-minlength="7" data-parsley-trigger="change" required/>
             <label>Confirm password * </label>
-            <input type="password" placeholder="Enter Password" name="password" id="password2" data-parsley-trigger="change" required data-parsley-equalto="#password"
+            <input type="password" placeholder="Enter Password" name="confirmpassword" id="password2" data-parsley-trigger="change" required data-parsley-equalto="#password"
             />
     </div>
 
