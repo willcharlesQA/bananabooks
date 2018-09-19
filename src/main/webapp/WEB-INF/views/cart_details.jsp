@@ -4,6 +4,7 @@
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.qa.models.Book"%>
+<%@ page import="com.qa.models.Customer" %>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -14,31 +15,17 @@
     
   </head>
   <body>
-    
-    <%!
-    
-      ArrayList<Book> books;
-    
-      Map<Integer,Integer> bookCounts;
-    
-      
-    %>
-    
-    
-    <%
-    
 
+
+    <%
+        ArrayList<Book> books  = (ArrayList<Book>) session.getAttribute("filtered_books");
+        Map<Integer,Integer>bookCounts = (Map<Integer,Integer>)  session.getAttribute("book_counts");
+        Customer c = (Customer) session.getAttribute("logged_in_customer");
+        double cartTotal = 0.0;
     
-    books  = (ArrayList<Book>) session.getAttribute("filtered_books");
+        double orderTotal = 0.0;
     
-    bookCounts = (Map<Integer,Integer>)  session.getAttribute("book_counts");
-    System.out.println("Counts:" + bookCounts);
-    
-    double cartTotal = 0.0;
-    
-    double orderTotal = 0.0;
-    
-    double totalPrice =  0.0;
+        double totalPrice =  0.0;
     %>
     
    
@@ -193,11 +180,30 @@
            </div>
       
         </div>
+          <% if (c != null){
+              %>
+          <form action="/checkout" method="post" id="checkout_form">
+              <input type="hidden" name="order_total" value="<%=cartTotal %>"/>
+              <input type="submit" class="button large expanded" value="Proceed to Checkout"/>
+          </form>
+          <%
+          } else{
+          %>
 
-		<form action="/checkout" method="post" id="checkout_form">   
-		<input type="hidden" name="order_total" value="<%=cartTotal %>"/>   
-        <input type="submit" class="button large expanded" value="Proceed to Checkout"/>
-        </form> 
+          <form action="loginProcess" method="post" id="login_form">
+
+              <label>Email * </label>
+              <input type="email" placeholder="Enter email" name="email" id="email" data-parsley-trigger="change" required/>
+              <label>Password * </label>
+              <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-trigger="change" required/>
+              <input type="submit" class="button expanded" value="Login">
+
+          </form>
+
+          <%
+              }
+          %>
+
       </div>  
  </div>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
