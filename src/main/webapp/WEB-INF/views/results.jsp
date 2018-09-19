@@ -42,12 +42,11 @@
 
     
     <div class="row column text-center">
-      <h2>Search results
+      <h2>Search results for "${searchTerm}"
       
       
       <%
-         Iterable<Book> books = (Iterable<Book>) session.getAttribute("books");
-          
+         Iterable<Book> books = (Iterable<Book>) session.getAttribute("filtered_books");
       %>
       
       

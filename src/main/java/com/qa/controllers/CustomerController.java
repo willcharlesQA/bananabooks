@@ -55,7 +55,7 @@ public class CustomerController {
 		return modelAndView;
 		
 	}
-
+	
 	@RequestMapping("/aboutUs")
 	public ModelAndView aboutUs()
 	{

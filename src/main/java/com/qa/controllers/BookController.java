@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +33,20 @@ public class BookController {
 		modelAndView.addObject("books", books);
 		return modelAndView;
 		
+	}
+	
+	@RequestMapping(value="/results")
+	public ModelAndView Search(@RequestParam(value = "search", required = false) String SearchTerm)
+	{
+	    ModelAndView modelAndView = new ModelAndView("results");
+	    
+	    Iterable<Book> books = bookService.findAll();
+	    ArrayList<Book> filtered_books = searchedBookList(books, SearchTerm);
+	    
+	    modelAndView.addObject("searchTerm", SearchTerm);
+	    modelAndView.addObject("filtered_books", filtered_books);
+	    
+	    return modelAndView;
 	}
 	
 	@RequestMapping("/addToCart")
@@ -236,5 +251,27 @@ public class BookController {
 		return filteredBooks;
 	
 	}
+	
+	public ArrayList<Book> searchedBookList(Iterable<Book> books, String query)
+	{
+        ArrayList<Book> filteredBooks = new ArrayList<>();
+		
+        
+        
+		for(Book book : books)
+		{
+			String book_name = book.getTitle().toLowerCase();
+			String book_desc = book.getDescription().toLowerCase();
+			String book_isbn = book.getPaperISBN().toLowerCase();
+			if(book_name.contains(query) == true || book_desc.contains(query) == true || book_isbn.contains(query) == true) {
+					filteredBooks.add(book);
+	      		}
+		}
+	
+        System.out.println("Book query found!");
+		return filteredBooks;
+	
+	}
+	
 	
 }
