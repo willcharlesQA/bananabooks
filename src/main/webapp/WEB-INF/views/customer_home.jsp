@@ -58,9 +58,8 @@
       </div>
     </nav>
 
-    <div class="callout large">
-      <div class="row column text-center">
-         
+    <div class="container" style="padding-top:90px">
+      <div class="jumbotron" style="background:none">
         <h3>You have logged in as <%=c.getFirstName() %></h3>
        </div>
     </div>
