@@ -1,5 +1,7 @@
 package com.qa.models;
 
+import jdk.nashorn.internal.objects.annotations.Constructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,11 +13,25 @@ public class BookOrder {
     @GeneratedValue
     private int orderId;
 
+    private int orderNumber;
+
     private int customerId;
 
     private int bookId;
+/*
+    public BookOrder(int orderNumber, int customerId, int bookId) {
+        this.orderNumber = orderNumber;
+        this.customerId = customerId;
+        this.bookId = bookId;
+    }*/
 
-    private int quantity;
+    public int getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(int orderNumber) {
+        this.orderNumber = orderNumber;
+    }
 
     public int getOrderId() {
         return orderId;
@@ -39,13 +55,5 @@ public class BookOrder {
 
     public void setBookId(int bookId) {
         this.bookId = bookId;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 }

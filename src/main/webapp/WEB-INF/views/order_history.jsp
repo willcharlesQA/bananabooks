@@ -1,6 +1,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.qa.models.BookOrder" %>
 <%@ page import="com.sun.xml.internal.bind.v2.TODO" %>
+<%@ page import="com.qa.models.Book" %>
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -13,6 +14,7 @@
 
 <%
     ArrayList<BookOrder> orders = (ArrayList<BookOrder>) session.getAttribute("orders");
+    ArrayList<Book> books = (ArrayList<Book>) request.getAttribute("books");
 %>
 
 <!-- Start Top Bar -->
@@ -55,26 +57,29 @@
     else{
         %>
 <h1> Orders </h1>
-<%
-    int i = 0;
-    for(BookOrder order : orders)
-    {
+<table>
+    <tr>
+        <th>Order</th>
+        <th></th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <%
+    for(BookOrder order : orders){
+        double price = books.get(order.getBookId()-1).getPrice();
+        String title = books.get(order.getBookId()-1).getTitle();
+        String imageURL = books.get(order.getBookId()-1).getBookImage();
 %>
-<div class="row small-up-3">
-
-    <div class="column">
-        <%=order.getBookId()%>
-    </div>
-    <div class="column">
-        <img class="thumbnail" src="<%=order.getQuantity()%>"/>
-    </div>
-</div>
+<tr>
+    <td> <%=order.getOrderNumber()%> </td>
+    <td> <%=title%> </td>
+    <td> <%=price%> </td>
+    <td><img class="thumbnail" src=<%=imageURL%>/></td>
+</tr>
 <%
-        i++;
     }
-    // NEED TO SHOW BOOK IMAGE, QUANTITY, AND COST - image will need a query
-
 %>
+</table>
 <%
     }
 %>

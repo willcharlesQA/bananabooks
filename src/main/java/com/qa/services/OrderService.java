@@ -20,4 +20,6 @@ public class OrderService {
     {
         return orderRepository.save(order);
     }
+
+    public int getLatestOrderNumber(){ return orderRepository.getLatestOrderNumber(); }
 }

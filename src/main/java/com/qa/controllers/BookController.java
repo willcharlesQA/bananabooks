@@ -216,8 +216,6 @@ public class BookController {
 		
 		Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
-		
-
 		for (int bookId : bookIds) {
 			Integer count = map.get(bookId);
 			map.put(bookId, (count == null) ? 1 : count + 1);
@@ -227,7 +225,6 @@ public class BookController {
 			System.out.println("Key : " + entry.getKey() + " Value : "
 				+ entry.getValue());
 		}
-
 		
 		return map;
 	}
