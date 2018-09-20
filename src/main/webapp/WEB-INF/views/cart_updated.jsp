@@ -37,15 +37,11 @@
         </div>
       </div>
     </nav>
-
-    <div class="callout large">
-      <div class="row column text-center">
-        <h1>Item added to cart </h1>
-        
-        <a href="/" class="button large">Back to Items </a>
-        <a href="/viewCart" class="button large">View Cart </a>
-      
-      </div>
+    
+	<div class="container" style="padding-top:90px">
+	    <div class="jumbotron" style="background:none">
+	    	<h1>Your item has been added to the cart!</h1>
+	    </div>
     </div>
     
    

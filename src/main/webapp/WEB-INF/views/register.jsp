@@ -37,38 +37,37 @@
         </div>
       </div>
     </nav>
-
-	<div class="container" style="padding-top:90px">
-	    <h3> Create an account  </h3>
-
-        <form action="registerProcess" method="post" id="register_form">
-            <label>First name * </label>
-            <input type="text" placeholder="Enter firstname" name="firstName" id="firstName" data-parsley-trigger="change" required/>
-            <label>Last name * </label>
-            <input type="text" placeholder="Enter lastname" name="lastName" id="lastName" data-parsley-trigger="change" required/>
-            <label>Email * </label>
-            <input type="text" placeholder="Enter email" name="email" id="email" data-parsley-type="email" data-parsley-trigger="change" required/>
-            <label>Password * </label>
-            <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-minlength="7" data-parsley-trigger="change" required/>
-            <label>Confirm password * </label>
-            <input type="password" placeholder="Enter Password" name="confirmpassword" id="password2" data-parsley-trigger="change" required data-parsley-equalto="#password"
-            />
-    </div>
-
-    <div class="medium-6">
-
-        <input type="checkbox" name="aggreement"/> I have read and understood the
-        <a href="/registered_user_agreement">Registered User Agreement </a> and agree to be bound by all of its terms.
-
-    </div>
-
-    <input type="submit" class="button create account" value="Create Account">
-    </form>
-
-
-
-</div>
-</div>
+	<div class="container" style="padding-top:90px;width:50%">
+	    <div class="jumbotron" style="background:none">
+	    	<h3> Create an account  </h3>
+	    	<br>
+			<form action="registerProcess" method="post" id="register_form">
+                <div class="form-row">
+    				<div class="col">
+      					<input type="text" class="form-control" placeholder="First name">
+    				</div>
+    				<div class="col">
+      					<input type="text" class="form-control" placeholder="Last name">
+    				</div>
+  				</div>
+  				<br>
+				<div class="form-group">
+               		<input type="email" id="inputEmail" class="form-control" placeholder="Email Address" name="email" id="email" data-parsley-trigger="change" required autofocus>
+               	</div>
+               	
+               	<div class="form-group">
+             			<input type="password" class="form-control" placeholder="Password" name="password" id="password" data-parsley-trigger="change" required>
+             			<input type="password" class="form-control" placeholder="Confirm password" name="confirmpassword" id="password2" data-parsley-trigger="change" style="padding-top:5px" required>
+               	</div>
+               	
+                <input type="checkbox" name="aggreement"/> I have read and understood the
+        		<a href="">Registered User Agreement </a> and agree to be bound by all of its terms.
+                <br>
+                <br>
+                <input class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Create Account">
+            </form><!-- /form -->
+		</div>
+	</div>
 
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
