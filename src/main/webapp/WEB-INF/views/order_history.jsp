@@ -50,30 +50,27 @@
 <%
     if (orders.size() == 0){
         %>
-<h1> Nothing bought yet, what are you waiting for? </h1>
+<h3> Nothing bought yet, what are you waiting for? </h3>
 <%
     }
     else{
         %>
-<h1> Orders </h1>
+<h3> Orders </h3>
 <table>
     <tr>
         <th>Order</th>
-        <th></th>
-        <th>Title</th>
+        <th>Book</th>
         <th>Price</th>
     </tr>
     <%
     for(BookOrder order : orders){
         double price = books.get(order.getBookId()-1).getPrice();
-        String title = books.get(order.getBookId()-1).getTitle();
         String imageURL = books.get(order.getBookId()-1).getBookImage();
 %>
 <tr>
     <td> <%=order.getOrderNumber()%> </td>
-    <td> <%=title%> </td>
-    <td> <%=price%> </td>
     <td><img class="thumbnail" src=<%=imageURL%>/></td>
+    <td> <%=price%> </td>
 </tr>
 <%
     }
