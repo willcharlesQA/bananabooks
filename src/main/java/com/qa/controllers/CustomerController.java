@@ -100,13 +100,14 @@ public class CustomerController {
 	  
 		if(c!=null)
 		{
-	  		modelAndView = new ModelAndView("registration_success");
+			customerService.loginProcess(c.getEmail(), c.getPassword());
+			modelAndView = new ModelAndView("registration_success", "logged_in_customer",c);
 		}
 		else
 		{
 			modelAndView = new ModelAndView("registration_failed");
 		}
-	  		
+
 		return modelAndView;
 	}
 	
