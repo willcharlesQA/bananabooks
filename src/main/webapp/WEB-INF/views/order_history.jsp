@@ -57,25 +57,30 @@
 		    else{
         %>
 	<h3> Orders </h3>
-	<table>
-	    <tr>
-	        <th>Order</th>
-	        <th>Book</th>
-	        <th>Price</th>
-	    </tr>
-    <%
-    for(BookOrder order : orders){
-        double price = books.get(order.getBookId()-1).getPrice();
-        String imageURL = books.get(order.getBookId()-1).getBookImage();
-	%>
-		<tr>
-		    <td> <%=order.getOrderNumber()%> </td>
-		    <td><img class="thumbnail" src=<%=imageURL%>/></td>
-		    <td> <%=price%> </td>
-		</tr>
-	<%
-    	}
-	%>
+	<table class="table">
+		<thead>
+		    <tr>
+		        <th scope="col">Quantity</th>
+		        <th scope="col">Book</th>
+		        <th scope="col">Price</th>
+		    </tr>
+	    </thead>
+	    <tbody>
+	    	<%
+		    for(BookOrder order : orders){
+		        double price = books.get(order.getBookId()-1).getPrice();
+		        String imageURL = books.get(order.getBookId()-1).getBookImage();
+			%>
+			<tr>
+				<th scope="row"><%=order.getOrderNumber()%></th>
+			    <td><img class="thumbnail" src=<%=imageURL%>/></td>
+			    <td> <%=price%> </td>
+			</tr>
+		<%
+	    	}
+		%>
+	    </tbody>
+	    
 	</table>
 	<%
 	    }
