@@ -120,7 +120,7 @@
 					    data-amount="<%=orderTotal*100%>"
 					    data-name="BananaBooks"
 					    data-description="Please enter details below"
-					    data-image="images/LogoHQ.png"
+					    data-image="images/Bunch.png"
 					    data-locale="auto">
 				  </script>
                 </div>
