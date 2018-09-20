@@ -23,7 +23,7 @@
 <!-- Static navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="125"/></a>
+        <a class="navbar-brand" href="/"><img src="images/LogoHQ.png" width="125"/></a>
         <form class="form-inline" action="/results">
     		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
     		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -120,7 +120,7 @@
 					    data-amount="<%=orderTotal*100%>"
 					    data-name="BananaBooks"
 					    data-description="Please enter details below"
-					    data-image="images/LogoV1.png"
+					    data-image="images/LogoHQ.png"
 					    data-locale="auto">
 				  </script>
                 </div>
