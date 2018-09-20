@@ -39,7 +39,7 @@
             <li><a href="/profile">Personal Details</a></li>
             <li><a href="#">Address Book</a></li>
             <li><a href="#">Change Password </a></li>
-            <li><a href="#">Order History </a></li>
+            <li><a href="/orderhistory">Order History </a></li>
              <li><a href="/logout">Logout</a></li>
             <li class="has-submenu">
               <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
