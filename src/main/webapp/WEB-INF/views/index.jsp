@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>Online Shopping</title>
     
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -16,7 +17,7 @@
   	<!-- Static navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="100"/></a>
+        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="125"/></a>
         <form class="form-inline" action="/results">
     		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
     		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -43,7 +44,7 @@
       </div>
     </nav>
     
-    <div class="container" style="padding-top:80px">
+    <div class="container" style="padding-top:90px">
 	    <h2>Our Newest Books</h2><hr>
 	    <div class="row row-offcanvas row-offcanvas-right text-center">
       	<% Iterable<Book> books = (Iterable<Book>) session.getAttribute("books"); %>

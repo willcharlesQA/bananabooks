@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bananabooks - Welcome</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     
     
     
@@ -14,102 +14,79 @@
   </head>
   <body>
     
-    <%!
-    
-      Book book;
+    <%! Book book; %>
+    <% book = (Book) request.getAttribute("book"); %>
 
-    %>
-    
-    
-    <%
-    
-     book = (Book) request.getAttribute("book");
-    
-    
-    
-    
-    %>
-    
-   
-
-<!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
-          <li><form action="/results">
-      			<input type="text" placeholder="Search.." name="search">
-      			<button type="submit">Submit</button>
-    		</form></li>
-          
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        
-             <ul class="dropdown menu" data-dropdown-menu>
-            <li id="cart_items"></li>
-            <li class="has-submenu">
-              <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/> View Cart </a></li>
-                <li><a href="/login">Register | Login</a></li>
-              </ul>
+<!-- Static navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="125"/></a>
+        <form class="form-inline" action="/results">
+    		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+    		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  		</form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutUs">About</a>
             </li>
-            <li><a href="/aboutUs">About Us</a></li>
-            <li><a href="/contactUs">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactUs">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Register | Login</a>
+            </li>
+            <li class="nav-item">
+  				<a class="nav-link" href="/viewCart"><img src="images/cart.png" width="30"/></a>
+  			</li>
           </ul>
-          
+        </div>
       </div>
-    </div>
-    <!-- End Top Bar -->
+    </nav>
     <br>
+    
     <!-- You can now combine a row and column if you just need a 12 column row -->
-    <div class="row columns">
-      <nav aria-label="You are here:" role="navigation">
-        <ul class="breadcrumbs">
-         
-          
-          <li>
-            <span class="show-for-sr">Current: </span> Book Details
-          </li>
-        </ul>
-      </nav>
+    <div class="container" style="padding-top:90px">
+    <div class="row">
+	    <nav aria-label="breadcrumb">
+		  	<ol class="breadcrumb" style="background:none">
+		  		<li class="breadcrumb-item"><a href="#">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Book Details</li>
+		  	</ol>
+		</nav>
     </div>
 
     <div class="row">
-      <div class="medium-6 columns">
-        <img class="thumbnail" src="<%=book.getBookImage()%>"/>
-        <div class="row small-up-4">
-          <div class="column">
-            eBook ISBN : <%=book.geteBookISBN()%>
-          </div>
-          <div class="column">
-            Print book ISBN <%=book.getPaperISBN()%>
-          </div>
-          <div class="column">
-           Price :       $<%=book.getPrice()%>
-          </div>
-          <div class="column">
-            Published On <%=book.getPublishedDate()%>
-          </div>
+	    <div class="col-lg-4">
+	      <img class="rounded mx-auto d-block" style="width:auto;height:75%" src="<%=book.getBookImage()%>"/>
+	      <br>
+	      <div class="form-group">
+	    		<select class="form-control" id="exampleFormControlSelect1">
+	      			<option value="print">Paperback</option>
+			  		<option value="eBook">eBook</option>
+			        <option value="printAndeBook">PrintBook & eBook</option>
+	    		</select>
+  			</div>
+  			<a href="" class="btn btn-info disabled" style="width:100%">$<%=book.getPrice()%></a>
+  			<br>
+  			<br>
+        	<a href="/addToCart?bookId=<%=book.getBookId()%>" class="btn btn-primary btn-lg btn-warning" role="button" style="width:100%">Add to Cart</a>
+	    </div>
+	    
+	    <div class="col-lg-8">
+	    	<h2><%=book.getTitle() %></h3>
+	    	<blockquote class="blockquote">
+	    		<p><%=book.getDescription() %></p>
+	    	</blockquote>
+	      	Published: <%=book.getPublishedDate()%> <br>
+	      	ISBN: <%=book.getPaperISBN()%> 
+	    </div>
+    </div>
         
-        </div>
-      </div>
-      <div class="medium-6 large-5 columns">
-        <h3><%=book.getTitle() %></h3>
-        <p><%=book.getDescription() %></p>
-
-        <label>Select the format
-        <select>
-          <option value="print">Paperback</option>
-          <option value="eBook">eBook</option>
-          <option value="printAndeBook">PrintBook & eBook</option>
-        </select>
-        </label>
-
-        
-
-        <a href="/addToCart?bookId=<%=book.getBookId()%>" class="button large expanded">Add to Cart</a>
+		
 
         <!-- <div class="small secondary expanded button-group">
             <a class="button">Facebook</a>
@@ -117,7 +94,6 @@
             <a class="button">Yo</a>
           </div> -->
         </div>
-    </div>
 <!--  
     <div class="column row">
       <hr>
@@ -198,16 +174,6 @@
       </div>
     </div>
 -->
-    <div class="row column">
-      <hr>
-      <ul class="menu">
-        <li>Online Shopping</li>
-        
-        <li><a href="/aboutUs">About Us</a></li>
-        <li><a href="/contactUs">Contact</a></li>
-        <li class="float-right">Copyright 2017</li>
-      </ul>
-    </div>
 
 
  

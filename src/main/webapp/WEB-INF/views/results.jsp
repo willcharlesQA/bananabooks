@@ -8,76 +8,60 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Shopping - Search Results</title>
-    <link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   </head>
   <body>
 
-    <!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
-          <li><form action="/results">
-      			<input type="text" placeholder="Search.." name="search">
-      			<button type="submit">Submit</button>
-    		</form></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        
-             <ul class="dropdown menu" data-dropdown-menu>
-            <li id="cart_items"></li>
-            <li class="has-submenu">
-              <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/> View Cart </a></li>
-                <li><a href="/login">Register | Login</a></li>
-              </ul>
+   <!-- Static navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="125"/></a>
+        <form class="form-inline" action="/results">
+    		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+    		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  		</form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutUs">About</a>
             </li>
-            <li><a href="/aboutUs">About Us</a></li>
-            <li><a href="/contactUs">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactUs">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Register | Login</a>
+            </li>
+            <li class="nav-item">
+  				<a class="nav-link" href="/viewCart"><img src="images/cart.png" width="30"/></a>
+  			</li>
           </ul>
-          
+        </div>
       </div>
-    </div>
-    <!-- End Top Bar -->
+    </nav>
 
-
-    
-    <div class="row column text-center">
-      <h2>Search results for "${searchTerm}"
-      
-      
-      <%
-         Iterable<Book> books = (Iterable<Book>) session.getAttribute("filtered_books");
-      %>
-      
-      
-      </h2>
-      <hr>
-    </div>
-
-    <div class="row small-up-2 large-up-4">
-    
-    <%
-    
-    for(Book book: books){
-    %>
-      <div class="column">
-      
-        <a href="/bookDetails?bookId=<%=book.getBookId()%>"><img class="thumbnail" src="<%=book.getBookImage()%>"></a>
-        <h5><%= book.getTitle()%></h5>
-        <p>$<%= book.getPrice()%></p>
-        <a href="/bookDetails?bookId=<%=book.getBookId()%>" class="button expanded">View book details</a>
-        <!--  a href="/addToCart?bookId=" class="button expanded">Add to Cart</a>-->
-      </div>
-    
-    <%
-
-    }
-    %>  
-    </div>
-
+        <div class="container" style="padding-top:90px">
+	    <h2>Search results for "${searchTerm}"</h2><hr>
+	    <div class="row row-offcanvas row-offcanvas-right text-center">
+      	<% Iterable<Book> books = (Iterable<Book>) session.getAttribute("filtered_books"); %>
+      	<% for(Book book: books){ %>
+	    <div class="col-lg-3 col-md-6 mb-4">
+	      <div class="card">
+	        <a href="/bookDetails?bookId=<%=book.getBookId()%>"><img class="card-img-top" src="<%=book.getBookImage()%>"></a>
+	        <div class="card-body">
+		        <h6 class="card-title"><%= book.getTitle()%></h6>
+		        <p class="card-text">$<%= book.getPrice()%></p>
+	        </div>
+	        <div class="card-footer">
+	        	<a href="/bookDetails?bookId=<%=book.getBookId()%>" class="button expanded">View book details</a>
+	        </div>
+	      </div>
+	    </div>
+    	<% } %>  
+    	</div>
+	</div>
     <hr>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>

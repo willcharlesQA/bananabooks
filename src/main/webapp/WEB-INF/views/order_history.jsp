@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Shopping </title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -15,36 +15,35 @@
     ArrayList<BookOrder> orders = (ArrayList<BookOrder>) session.getAttribute("orders");
 %>
 
-<!-- Start Top Bar -->
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="menu">
-            <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
-            <li><form action="/results">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit">Submit</button>
-            </form></li>
-
-        </ul>
-    </div>
-    <div class="top-bar-right">
-
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li id="cart_items"></li>
-            <li class="has-submenu">
-                <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
-                <ul class="submenu menu vertical" data-submenu>
-                    <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/> View Cart </a></li>
-                    <li><a href="/login">Register | Login</a></li>
-                </ul>
+<!-- Static navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="125"/></a>
+        <form class="form-inline" action="/results">
+    		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+    		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  		</form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutUs">About</a>
             </li>
-            <li><a href="/aboutUs">About Us</a></li>
-            <li><a href="/contactUs">Contact</a></li>
-        </ul>
-
-    </div>
-</div>
-<!-- End Top Bar -->
+            <li class="nav-item">
+              <a class="nav-link" href="contactUs">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Register | Login</a>
+            </li>
+            <li class="nav-item">
+  				<a class="nav-link" href="/viewCart"><img src="images/cart.png" width="30"/></a>
+  			</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
 <%
     if (orders.size() == 0){

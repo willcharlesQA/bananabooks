@@ -4,55 +4,59 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Contact Us | Elsevier </title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   </head>
   <body>
     
-    <!-- Start Top Bar -->
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <li><a href="/"><img src="images/LogoV1.png" width="100" height="100"/></a></li>
-          <li><form action="/results">
-      			<input type="text" placeholder="Search.." name="search">
-      			<button type="submit">Submit</button>
-    		</form></li>
-          
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        
-             <ul class="dropdown menu" data-dropdown-menu>
-            <li id="cart_items"></li>
-            <li class="has-submenu">
-              <a href="/viewCart"> <img src="images/cart.png" width="50" height="50"/></a>
-              <ul class="submenu menu vertical" data-submenu>
-                <li><a href="/viewCart"><img src="images/cart.png" width="50" height="50"/> View Cart </a></li>
-                <li><a href="/login">Register | Login</a></li>
-              </ul>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><img src="images/LogoV1.png" width="125"/></a>
+        <form class="form-inline" action="/results">
+    		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+    		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  		</form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/aboutUs">About</a>
             </li>
-            <li><a href="/aboutUs">About Us</a></li>
-            <li><a href="/contactUs">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="contactUs">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Register | Login</a>
+            </li>
+            <li class="nav-item">
+  				<a class="nav-link" href="/viewCart"><img src="images/cart.png" width="30"/></a>
+  			</li>
           </ul>
-          
+        </div>
       </div>
+    </nav>
+    
+    <div class="container" style="padding-top:90px">
+	    <div class="jumbotron" style="background:none">
+	    	<h1>Contact Us</h1>
+             <form action="contactUs" method="post" id="contact_form">
+  			 	<div class="form-group">
+  			 		<input  class="form-control" placeholder="Enter name" data-parsley-trigger="change" required/>
+  			 		<br>
+    				<input type="email" class="form-control" placeholder="name@example.com" name="email" id="email" data-parsley-trigger="change" required>
+    				<br>
+  				</div>
+  				<div class="form-group">
+				    <textarea type="text" placeholder="Sup?" class="form-control" id="exampleFormControlTextarea1" rows="5" data-parsley-minlength="5" data-parsley-trigger="change"></textarea>
+  				</div>
+  				<button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+			</form>   
+	    </div>
     </div>
-    <!-- End Top Bar -->
-
-    <div class="row column text-center">
-        <h1> Contact us!</h1>
-              <form action="contactUs" method="post" id="contact_form">
-                  <label>Name * </label>
-                  <input  placeholder="Enter name" data-parsley-trigger="change" required/>
-                  <label>Email * </label>
-                  <input type="email" placeholder="Enter email" name="email" id="email" data-parsley-trigger="change" required/>
-                  <label>Message * </label>
-                  <input type="text" placeholder="Sup?" data-parsley-minlength="5" data-parsley-trigger="change" required/>
-                  <input type="submit" class="button expanded" value="Submit">
-              </form>
-          </div>
-    </div>
-
+    
+    
    
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="http://parsleyjs.org/dist/parsley.min.js"></script>
