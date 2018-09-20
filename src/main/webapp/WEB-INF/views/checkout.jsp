@@ -55,229 +55,140 @@
       </div>
     </nav>
 <br>
-<!-- You can now combine a row and column if you just need a 12 column row -->
-<div class="row columns">
-    <nav aria-label="You are here:" role="navigation">
-        <ul class="breadcrumbs">
-            <li>
-                <span class="show-for-sr">Current: </span> Cart Details
-            </li>
-        </ul>
-    </nav>
-</div>
 
-<div class="row">
-
-    <div class="medium-6 columns">
-
-        <h2> Address </h2>
-        <div class="row small-up-shiping">
-
-            <% if (address != null){
-            %>
+<div class="container" style="padding-top:90px">
+   	<div class="row">
+	    <nav aria-label="breadcrumb">
+		  	<ol class="breadcrumb" style="background:none">
+		  		<li class="breadcrumb-item"><a href="#">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">View Basket</li>
+		  	</ol>
+		</nav>
+    </div>
+    
+    <div class="row">
+    	<div class="col-lg-6">
+    		<h2> Address </h2>
+    		<% if (address != null){ %>
             <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
-
-                <div class="columns">
-                    <label> First name * </label>
-                    <input value="<%=c.getFirstName()%>" type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
+                <div class="form-group">
+                    <label>First name</label>
+                    <input class="form-control" value="<%=c.getFirstName()%>" type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
+                
+                    <label>Last name</label>
+                    <input class="form-control" value="<%=c.getLastName()%>" type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                 </div>
 
-                <div class="columns">
-                    <label> Last name * </label>
-                    <input value="<%=c.getLastName()%>" type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Address line 1* </label>
-                    <input value="<%=address.getAddressLine1()%>" type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Address line 2* </label>
-                    <input value="<%=address.getAddressLine2()%>" type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
-                </div>
-
-                <div class="columns">
-                    <label> City * </label>
-                    <input value="<%=address.getCity()%>" type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Post/ZIP code * </label>
-                    <input value="<%=address.getPostcode()%>" type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
-                </div>
-
-                <div class="columns">
-                    <label> Country *</label>
-                    <input value="<%=address.getCountry()%>" type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                <div class="form-group">
+                    <label> Address line 1</label>
+                    <input class="form-control" value="<%=address.getAddressLine1()%>" type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
+               
+                    <label> Address line 2</label>
+                    <input class="form-control" value="<%=address.getAddressLine2()%>" type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
+                
+                    <label> City</label>
+                    <input class="form-control" value="<%=address.getCity()%>" type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                
+                    <label> Post/ZIP Code</label>
+                    <input class="form-control" value="<%=address.getPostcode()%>" type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
+                
+                    <label> Country</label>
+                    <input class="form-control" value="<%=address.getCountry()%>" type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                 </div>
 
                 <div class="columns">
                     <label> Phone Number </label>
-                    <input value="<%=address.getPhoneNumber()%>" type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
+                    <input class="form-control" value="<%=address.getPhoneNumber()%>" type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
                 </div>
                 <%
                     } else{
                 %>
-                <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
-
+            <form action="confirmation" method="post" id="checkout_form" data-parsley-validate="parsley">
+				<div class="form-group">
                     <div class="columns">
-                        <label> First name * </label>
-                        <input type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
-                    </div>
-
-                    <div class="columns">
-                        <label> Last name * </label>
-                        <input type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                        <label> First name</label>
+                        <input class="form-control" type="text" name="first" id="first" size="30" data-parsley-trigger="change" data-parsley-type="alphanum"     required/>
                     </div>
 
                     <div class="columns">
-                        <label> Address line 1* </label>
-                        <input type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
+                        <label> Last name</label>
+                        <input class="form-control" type="text" name="last" id="last" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                    </div>
+				</div>
+				<div class="form-group">
+                    <div class="columns">
+                        <label> Address line 1</label>
+                        <input class="form-control" type="text" name="addressLine1" id="addressLine1" size="30" data-parsley-trigger="change" required/>
                     </div>
 
                     <div class="columns">
-                        <label> Address line 2* </label>
-                        <input type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
+                        <label> Address line 2</label>
+                        <input class="form-control" type="text" name="addressLine2" id="addressLine2" size="30" data-parsley-trigger="change" required/>
                     </div>
 
                     <div class="columns">
-                        <label> City * </label>
-                        <input type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                        <label> City</label>
+                        <input class="form-control" type="text" name="city" id="city" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                     </div>
 
                     <div class="columns">
-                        <label> Post/ZIP code * </label>
-                        <input type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
+                        <label> Post/ZIP code</label>
+                        <input class="form-control" type="text" name="postcode" id="postcode" size="30" data-parsley-trigger="change" data-parsley-maxlength="7" required/>
                     </div>
 
                     <div class="columns">
-                        <label> Country *</label>
-                        <input type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
+                        <label> Country</label>
+                        <input class="form-control" type="text" name="country" id="country" size="30" data-parsley-trigger="change" data-parsley-type="alphanum" required/>
                     </div>
-
-                    <div class="columns">
-                        <label> Phone Number </label>
-                        <input type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
-                    </div>
-                    <%
-                        }
-                    %>
-                <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
-        </div>
-        <hr>
-
-    </div>
-    <div class="medium-6 large-5 columns">
-
-
-        <!--  <div class="login_in_shipping">
-
-
-        <div class="row">
-          <div class="small-3 columns">
-            <h4>Already have an account </h4>
-            <p> Login to check out using your saved details </p>
-            <label> Email * </label>
-            <input type="text" name="email" placeholder="Enter your email ID" size="40"/>
-             <label> Password * </label>
-            <input type="password" name="password" placeholder="Enter your password" size="40"/>
-
-           <input type="submit" id="login_submit" value="Login"/>
-
-          </div>
-
-
-       </div>
-
-      </div> -->
-        <%
-            if (c == null){
-        %>
-
-        <h3>Already have an account? </h3>
-        <p> Please login using saved details</p>
-
-        <div class="row">
-            <div class="small-3 columns">
-                <form action="loginCheckout" method="post" id="login_form">
-
-                    <label>Email ID * </label>
-                    <input type="email" placeholder="Enter email" name="email" id="email" data-parsley-trigger="change" required/>
-                    <label>Password * </label>
-                    <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-trigger="change" required/>
-                    <input type="submit" class="button expanded" value="Login">
-
-                </form>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">VAT </label>
-            </div>
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">Applicable Tax </label>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="small-3 columns">
-                <label for="middle-label" class="middle">Order Total  </label>
-            </div>
-            <div class="small-3 columns">
-
-                <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
-            </div>
-
-        </div>
-
-        <%
-            }
-            else{
-        %>
-            <h1> Nice choice <%=c.getFirstName() %>! <h1>
-                <h3>Order Summary </h3>
-                <p> </p>
-
-                <div class="row">
-
-                <%
-                    int i = 0;
-                    for(Book book : books)
-                    {
-                    %>
-                    <div class="row small-up-3">
-
-                        <div class="column">
-                            <%=book.getTitle()%>
-                        </div>
-                        <div class="column">
-                            <img class="thumbnail" src="<%=book.getBookImage()%>"/>
-                        </div>
-                    </div>
-                    <%
-                            i++;
-                        }
-                    %>
-                    <div class="small-3 columns">
-                        <label for="middle-label" class="middle">Order Total  </label>
-                    </div>
-                    <div class="small-3 columns">
-                        <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
-                    </div>
+				</div>
+                <div class="columns">
+                    <label> Phone Number </label>
+                    <input class="form-control" type="text" name="phone" id="phone" size="30" data-parsley-type="digits"     />
                 </div>
-       
-					<input type="hidden" name="order_total" value="<%=orderTotal %>"/>   
-			        <input type="submit" class="button large expanded" value="Proceed to Confirmation"/>
-        		</form>
-            <%
-            }
-        %>
+                    <%
+                        }
+                    %>
+    	</div>
+    	<div class="col-lg-6">
+    		<input type="hidden" name="order_total" value="<%=orderTotal %>"/>
+    		<h1> Nice choice <%=c.getFirstName() %>! </h1>
+               <h3>Order Summary </h3>
+               <p> </p>
 
-    </div>
+               <div class="row">
+					<ul class="list-unstyled" style="padding-left:20px">
+               			<%
+		                   int i = 0;
+		                   for(Book book : books)
+		                   {
+		                 %>
+	                   <li class="media my-2" >
+	    					<img class="rounded" style="width:auto;height:30%" src="<%=book.getBookImage()%>"/>
+		    				<div class="media-body" style="padding-left:20px">
+			      				<h5 class="mt-0 mb-1"><%=book.getTitle()%></h5>
+			      				ISBN: <%=book.geteBookISBN()%><br>
+			      				Price: $<%=book.getPrice()%>
+		    				</div>
+		  				</li>
+                   		<%
+	                       i++;
+	                       }
+                   		%>
+                   </ul>
+               </div>
+      
+				<dl class="row">
+		  			<dt class="col-sm-8">Order Total</dt>
+		  			<dd class="col-sm-4"><label id="order_total_label"><b>$<%=orderTotal%></b></label></dd>
+		  		</dl>   
+		        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Proceed to Confirmation"/>
+       		</form>
+    	</div>
+	</div>
+</div>
 
+    
+ 
 
     <%-- <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
 <input type="submit" class="button large expanded" value="Checkout"/> --%>
