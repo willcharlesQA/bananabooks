@@ -106,10 +106,7 @@
       <% i++;}%>
       </div>
       <div class="col-lg-4">
-      	<div class="row">
       		<h4>Order Summary</h4>
-      	</div>
-      	<div class="row">
       		<dl class="row">
 	  			<dt class="col-sm-8">Cart Total</dt>
 	  			<dd class="col-sm-4"><label id="cart_total_label">$<%=cartTotal%></label></dd>
@@ -120,7 +117,6 @@
 	  			<dt class="col-sm-8">Order Total</dt>
 	  			<dd class="col-sm-4"><label id="order_total_label"><b>$<%=cartTotal%></b></label></dd>
   			</dl>
-      	</div>
       
         <input type="hidden" name="order_total" id="cart_total" value="<%=cartTotal %>"/>
         <input type="hidden" name="order_total" id="order_total" value="<%=cartTotal %>"/>
