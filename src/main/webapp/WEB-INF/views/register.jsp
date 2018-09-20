@@ -38,9 +38,8 @@
       </div>
     </nav>
 
-<div class="callout large">
-    <div class="medium-6">
-        <h3> Create an account  </h3>
+	<div class="container" style="padding-top:90px">
+	    <h3> Create an account  </h3>
 
         <form action="registerProcess" method="post" id="register_form">
             <label>First name * </label>

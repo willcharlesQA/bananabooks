@@ -38,33 +38,22 @@
       </div>
     </nav>
 
-    <div class="callout large">
-      <div class="row column">
-        
-        
-        <div class="medium-6">
-           <h3> Please login using your stored credentials  </h3>
-                
-               <form action="loginProcess" method="post" id="login_form">
-              
-               <label>Email ID * </label>
-                <input type="email" placeholder="Enter email" name="email" id="email" data-parsley-trigger="change" required/>
-                <label>Password * </label>
-				 <input type="password" placeholder="Enter Password" name="password" id="password" data-parsley-trigger="change" required/>
-            	<input type="submit" class="button expanded" value="Login">
-              
-              </form>
-            </div>
-      
-      <div class="medium-6">
-           
-           <p> New Customer?  </p> <a href="/register" class="button large expanded">Register</a>
-         
-            </div>
-      
-       
-      </div>
-    </div>
+    <div class="container" style="padding-top:90px;width:50%">
+	    <div class="jumbotron" style="background:none">
+	    	<h3> Please login using your stored credentials  </h3>
+	    	<br>
+			<form class="form-signin" action="loginProcess" method="post" id="login_form">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" name="email" id="email" data-parsley-trigger="change" required autofocus>
+                <p></p>
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password" data-parsley-trigger="change" required>
+                <br>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Login">Sign in</button>
+            </form><!-- /form -->
+            <br>
+            <a href="/register" class="btn btn-primary btn-lg btn-warning" style="width:100%">Register</a>
+		</div>
+	</div>
     
    
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
