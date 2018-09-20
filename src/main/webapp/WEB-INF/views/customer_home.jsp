@@ -39,6 +39,9 @@
               <a class="nav-link" href="contactUs">Contact</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/orderhistory">Order History</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/login">Register | Login</a>
             </li>
             <li class="nav-item">
