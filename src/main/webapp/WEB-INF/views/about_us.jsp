@@ -40,8 +40,16 @@
 
 	<div class="container" style="padding-top:90px">
 	    <div class="jumbotron" style="background:none">
-	    	<h1>About Us</h1>
-	       <p class="lead">Security is everyone's job.</p>
+    		<h1>About Us</h1>
+	       <ul class="lead">
+			  <li>Sam - Bowling Champion</li>
+			  <li>Will - Hackerman</li>
+			  <li>Ben - Captain Caveman</li>
+			  <li>Haaris - Database expert</li>
+			  <li>Lukas - Scrum master</li>
+			  <li>Rhys - Security expert</li>
+			</ul>
+	        <p class="lead">Security is everyone's job.</p>
 	    </div>
     </div>
     
