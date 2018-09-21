@@ -51,85 +51,79 @@
     </nav>
 <br>
 <!-- You can now combine a row and column if you just need a 12 column row -->
-<div class="row columns">
-    <nav aria-label="You are here:" role="navigation">
-        <ul class="breadcrumbs">
-
-            <li><a href="/">Home</a></li>
-            <li>
-                <span class="show-for-sr">Current: </span> Cart Details
-            </li>
-        </ul>
-    </nav>
-</div>
-
-<div class="row">
-
-    <div class="medium-6 columns">
-        <h3> Shipping address confirmation </h3>
-        <div class="row small-up-shiping">
-            <p><%=c.getFirstName() + " " + c.getLastName()%></p>
-            <p><%=request.getParameter("addressLine1")%></p>
-            <p><%=request.getParameter("addressLine2")%></p>
-            <p><%=request.getParameter("city")%></p>
-            <p><%=request.getParameter("postcode")%></p>
-            <p><%=request.getParameter("country")%></p>
-            <p><%=request.getParameter("phone")%></p>
-        </div>
-        <hr>
-
+<div class="container" style="padding-top:90px">
+   	<div class="row">
+	    <nav aria-label="breadcrumb">
+		  	<ol class="breadcrumb" style="background:none">
+		  		<li class="breadcrumb-item"><a href="#">Home</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">View Basket</li>
+		  	</ol>
+		</nav>
     </div>
-    <div class="medium-6 large-5 columns">
-
-            <h1> Nice choice <%=c.getFirstName() %>! <h1>
-                <h3>Order Summary </h3>
-                <p> </p>
-
-                <div class="row">
-
-                <%
-                    int i = 0;
-                    for(Book book : books)
-                    {
-                    %>
-                    <div class="row small-up-3">
-
-                        <div class="column">
-                            <%=book.getTitle()%>
-                        </div>
-                        <div class="column">
-                            <img class="thumbnail" src="<%=book.getBookImage()%>"/>
-                        </div>
-                    </div>
-                    <%
-                            i++;
-                        }
-                    %>
-                    <div class="small-3 columns">
-                        <label for="middle-label" class="middle">Order Total  </label>
-                    </div>
-                    <div class="small-3 columns">
-                        <label for="middle-label" class="middle" id="order_total_label">$<%=orderTotal%></label>
-                    </div>
-                </div>
-                <div>
-                    <!--  <input type="submit" class="button large expanded" value="Checkout"/> -->
-                  <script
-					    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-					    data-key="pk_test_21SqCOUdFzdvifRrHfRFiV74"
-					    data-amount="<%=orderTotal*100%>"
-					    data-name="BananaBooks"
-					    data-description="Please enter details below"
-					    data-image="images/Bunch.png"
-					    data-locale="auto">
-				  </script>
-                </div>
-
-    </div>
+    <div class="row">
+	    <div class="col">
+	        <h3> Shipping address confirmation </h3>
+	            <p><%=c.getFirstName() + " " + c.getLastName()%><br>
+	            <%=request.getParameter("addressLine1")%><br>
+	            <%=request.getParameter("addressLine2")%><br>
+	            <%=request.getParameter("city")%><br>
+	            <%=request.getParameter("postcode")%><br>
+	            <%=request.getParameter("country")%><br>
+	            <%=request.getParameter("phone")%></p><br>
+	        <hr>
+	
+	    </div>
+	</div>
+	<div class="row">
+	    <div class="col">
+	            <h3>Order Summary </h3>
+	            <p> </p>
+	
+	            <div class="row">
+					<ul class="list-unstyled" style="padding-left:20px">
+               			<%
+		                   int i = 0;
+		                   for(Book book : books)
+		                   {
+		                 %>
+	                   <li class="media my-2" >
+	    					<img class="rounded" style="width:auto;height:30%" src="<%=book.getBookImage()%>"/>
+		    				<div class="media-body" style="padding-left:20px">
+			      				<h5 class="mt-0 mb-1"><%=book.getTitle()%></h5>
+			      				ISBN: <%=book.geteBookISBN()%><br>
+			      				Price: $<%=book.getPrice()%>
+		    				</div>
+		  				</li>
+                   		<%
+	                       i++;
+	                       }
+                   		%>
+                   </ul>
+               </div>
+	    </div>
+	    <div class="col">
+	    	<dl class="row">
+	  			<dt class="col-sm-8">Order Total</dt>
+	  			<dd class="col-sm-4"><label id="order_total_label"><b>$<%=orderTotal%></b></label></dd>
+	  		</dl>
+	    	<div class="row">
+	              <script
+				    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				    data-key="pk_test_21SqCOUdFzdvifRrHfRFiV74"
+				    data-amount="<%=orderTotal*100%>"
+				    data-name="BananaBooks"
+				    data-description="Please enter details below"
+				    data-image="images/Bunch.png"
+				    data-locale="auto">
+	  				</script>
+	  				<br>
+	  			</div>
+	    </div>
 
     <%-- <input type="hidden" name="order_total" value="<%=orderTotal %>"/>
 <input type="submit" class="button large expanded" value="Checkout"/> --%>
 
+</div>
 </div>
 
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
